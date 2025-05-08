@@ -1,4 +1,11 @@
 @startuml
+class cliente{
+-Id_Cliente: int
+-Nombre: varchar
+-Apellido: varchar
+-Telefono: int
+-Correo: int
 
+}
 
 @enduml
