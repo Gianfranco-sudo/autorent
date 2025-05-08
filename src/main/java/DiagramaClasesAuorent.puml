@@ -5,7 +5,17 @@ class cliente{
 -Apellido: varchar
 -Telefono: int
 -Correo: int
-
++Actualizar_Datos_Cliente()
 }
+class vehiculo{
+-Id_Vehiculo: int
+-Marca: varchar
+-Modelo: varchar
+-Placa: varchar
+-Fecha_Fabricacion: date
+-Kilometrage: double
++Registrar_Vehiculo()
+}
+
 
 @enduml
