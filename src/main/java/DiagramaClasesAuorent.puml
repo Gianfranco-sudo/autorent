@@ -17,5 +17,14 @@ class vehiculo{
 +Registrar_Vehiculo()
 }
 
+class empleado{
+Id_empleado: int
+-Nombre: varchar
+-Apellido: varchar
+-Telefono: int
+-Correo: int
++Generar_reporte()
+}
+
 
 @enduml
