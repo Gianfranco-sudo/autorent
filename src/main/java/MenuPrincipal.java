@@ -27,13 +27,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        frmMenuPrincipal = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        frm = new javax.swing.JPanel();
+        frmMenuPrincipal = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnSalirDelSistema = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("frmMenuPrincipal"); // NOI18N
 
         jButton1.setText("Generar Reserva");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -44,26 +45,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jButton2.setText(" Stock de Vehiculos");
 
-        frmMenuPrincipal.setBackground(new java.awt.Color(153, 153, 153));
+        frm.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Bienvenido al Sistema de Gestion de Alquileres Autorent");
+        frmMenuPrincipal.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        frmMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        frmMenuPrincipal.setText("Bienvenido al Sistema de Gestion de Alquileres Autorent");
 
-        javax.swing.GroupLayout frmMenuPrincipalLayout = new javax.swing.GroupLayout(frmMenuPrincipal);
-        frmMenuPrincipal.setLayout(frmMenuPrincipalLayout);
-        frmMenuPrincipalLayout.setHorizontalGroup(
-            frmMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(frmMenuPrincipalLayout.createSequentialGroup()
+        javax.swing.GroupLayout frmLayout = new javax.swing.GroupLayout(frm);
+        frm.setLayout(frmLayout);
+        frmLayout.setHorizontalGroup(
+            frmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frmLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel1)
+                .addComponent(frmMenuPrincipal)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
-        frmMenuPrincipalLayout.setVerticalGroup(
-            frmMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(frmMenuPrincipalLayout.createSequentialGroup()
+        frmLayout.setVerticalGroup(
+            frmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frmLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel1)
+                .addComponent(frmMenuPrincipal)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -81,13 +82,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(51, 0, 102));
-        jButton5.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Salir del sistema");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnSalirDelSistema.setBackground(new java.awt.Color(51, 0, 102));
+        btnSalirDelSistema.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btnSalirDelSistema.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalirDelSistema.setText("Salir del sistema");
+        btnSalirDelSistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnSalirDelSistemaActionPerformed(evt);
             }
         });
 
@@ -95,7 +96,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(frmMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(frm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -111,13 +112,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addComponent(jButton2))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(190, 190, 190)
-                        .addComponent(jButton5)))
+                        .addComponent(btnSalirDelSistema)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(frmMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(frm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -127,7 +128,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton4))
                 .addGap(56, 56, 56)
-                .addComponent(jButton5)
+                .addComponent(btnSalirDelSistema)
                 .addContainerGap(66, Short.MAX_VALUE))
         );
 
@@ -146,9 +147,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btnSalirDelSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirDelSistemaActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirDelSistemaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,12 +187,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel frmMenuPrincipal;
+    private javax.swing.JButton btnSalirDelSistema;
+    private javax.swing.JPanel frm;
+    private javax.swing.JLabel frmMenuPrincipal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

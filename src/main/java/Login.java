@@ -54,6 +54,11 @@ public class Login extends javax.swing.JFrame {
                 btnAceptarMouseClicked(evt);
             }
         });
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,8 +93,8 @@ public class Login extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(49, 49, 49)
+                                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnCancelar)
                                     .addComponent(btnAceptar))))))
@@ -122,7 +127,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+       System.exit(0);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
@@ -130,28 +135,46 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordActionPerformed
 
     private void btnAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAceptarMouseClicked
-        String Usuario = "admin";
-        String Contraseña ="12345";
-        
-        String Pass = new String(Password());
-        
-        if(txtUsuario.getText().equals(Usuario)&& Pass.equals(Contraseña)){
-            MenuPrincipal MP = new MenuPrincipal();
-            MP.setVisible(true);
-            dispose();
-        }
-        else{
-            JOptionPane.showMessageDialog(this,"Usuario o Contraseña Incorrecta");
+    
 
         
-     }
+     
     
     }//GEN-LAST:event_btnAceptarMouseClicked
 
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+       // TODO add your handling code here:
+        String [] Usuarios = {"Luis","Pedro"};
+        String [] Claves = {"1234","5678"};
+        boolean verificado = false;
+        
+        String usuario = txtUsuario.getText();
+        String clave = String.valueOf(Password.getPassword());
+        
+        for (int i=0; i<Usuarios.length; i++){
+            if (Usuarios[i].equals(usuario) && Claves[i].equals(clave)){
+                verificado = true;
+                JOptionPane.showMessageDialog(null,"Idenditad Verificada");
+            }
+        }
+        
+        if (verificado){
+            MenuPrincipal formulario = new MenuPrincipal();
+            formulario.setVisible(true);
+            this.dispose();
+            
+        }else {
+            JOptionPane.showMessageDialog(null,"Intente otra vez");
+            txtUsuario.setText("");
+            Password.setText("");
+            txtUsuario.requestFocus();
+
+    }//GEN-LAST:event_btnAceptarActionPerformed
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+   public static void main(String args[]){
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -176,12 +199,13 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+       java.awt.EventQueue.invokeLater(new Runnable() {
+           public void run() {
                 new Login().setVisible(true);
             }
-        });
-    }
+       });
+   }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Password;
