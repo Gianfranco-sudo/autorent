@@ -1,5 +1,6 @@
 @startuml
-class cliente{
+
+class Cliente{
 -Id_Cliente: int
 -Nombre: varchar
 -Apellido: varchar
@@ -7,7 +8,8 @@ class cliente{
 -Correo: int
 +Actualizar_Datos_Cliente()
 }
-class vehiculo{
+
+class Vehiculo{
 -Id_Vehiculo: int
 -Marca: varchar
 -Modelo: varchar
@@ -17,14 +19,80 @@ class vehiculo{
 +Registrar_Vehiculo()
 }
 
-class empleado{
-Id_empleado: int
+
+class Empleado{
+-Id_empleado: int
 -Nombre: varchar
 -Apellido: varchar
 -Telefono: int
 -Correo: int
-+Generar_reporte()
++Atiende_Cliente()
 }
+
+class Sucursal{
+-Id_Sucursal: int 
+-Descripcion: varchar
+- Direccion: varchar
++Alquila_Vehiculos()
+}
+
+class Pago{
+-Id_Pago: int
+-Fecha_Pago: date
+-Monto: currency
++Actualiza_Caja()
+}
+
+class Reserva{
+-Id_Reserva: int
+-Fecha_Reserva: date
++Reserva_Alquiler_Vehiculo()
+}
+class Alquiler{
+Id_Alquiler: int
+Id_Fecha: date
++Registra_Alquiler()
+}
+
+class StockVehiculo{
+-Id_Stock: int
+-Estado: varchar
+-FechaIngreso: date
++Actualizar_Estado()
+}
+
+'RELACIONES:
+
+Cliente "1" -- "0..n" Reserva : Realiza
+Cliente -- Reserva: Pertenece
+
+Reserva "1" -- "1" Vehiculo : Selecciona
+Vehiculo -- Reserva : Está_Reservado
+
+Empleado "1" -- "1" Sucursal : Trabaja
+Sucursal -- Empleado : Tiene
+
+Sucursal "1" -- "0..n" Vehiculo : Posee
+Vehiculo -- Sucursal : Pertenece
+
+Reserva "0..1" -- "1" Alquiler : Genera
+Alquiler -- Reserva : Proviene
+
+Cliente "1" -- "0..n" Alquiler : Realiza
+Alquiler -- Cliente : Pertenece
+
+Alquiler "1" -- "1" Vehiculo : Usa
+Vehiculo -- Alquiler : Es Alquilado
+
+Alquiler "1" -- "1" Pago : Genera
+Pago -- Alquiler : Pertenece
+
+Vehiculo "1" -- "1" StockVehiculo : Tiene_Stock
+StockVehiculo -- Vehiculo : Controla Estado
+
+Sucursal "1" -- "0..n" StockVehiculo : Gestiona
+StockVehiculo -- Sucursal : Pertenece
+
 
 
 @enduml
