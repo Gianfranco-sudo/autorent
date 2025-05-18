@@ -12,10 +12,11 @@ public class frmvehiculo extends javax.swing.JFrame {
         //recopilar la informacion del formulario
         if (num==1)
             obj.setChasis(Integer.parseInt(txtChasis.getText()));
-        
-        obj.setDescripcion(txtDescripcion.getText());
-        obj.setMarca(cboMarca.getSelectedItem().toString());
-        obj.setStock(Integer.parseInt(this.txtStock.getText()));
+            obj.setPlaca(txtPlaca.getText());
+            obj.setDescripcion(txtDescripcion.getText());
+            obj.setMarca(cboMarca.getSelectedItem().toString());
+            obj.setModelo(txtModelo.getText());
+            obj.setStock(Integer.parseInt(txtStock.getText()));
         
         //escoger insercion o actualizacion
         if (num==0) {
