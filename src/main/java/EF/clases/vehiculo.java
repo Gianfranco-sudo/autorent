@@ -13,7 +13,7 @@ public class vehiculo {
     private String placa;
     private String marca;
     private String modelo;
-    private int Stock;
+    private int stock;
 
     private conexionBD cnn;
     private PreparedStatement sentencia;
@@ -43,11 +43,11 @@ public class vehiculo {
     public void setModelo(String modelo) { this.modelo = modelo; }
 
     public int getStock() {
-        return Stock;
+        return stock;
     }
 
-    public void setStock(int Stock) {
-        this.Stock = Stock;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
 
@@ -64,6 +64,7 @@ public class vehiculo {
             sentencia.setString(3, placa);
             sentencia.setString(4, marca);
             sentencia.setString(5, modelo);
+            sentencia.setInt(6, stock);
 
             resp = sentencia.executeUpdate();
             if (resp > 0) {
@@ -87,6 +88,7 @@ public class vehiculo {
         modeloTabla.addColumn("Placa");
         modeloTabla.addColumn("Marca");
         modeloTabla.addColumn("Modelo");
+        modeloTabla.addColumn("Stock");
         return modeloTabla;
     }
 
@@ -120,7 +122,7 @@ public class vehiculo {
     }
 
     // Actualizar registro
-    public int actualizarDatos(int chasis, String descripcion, String placa, String marca, String modelo, int Stock) {
+    public int actualizarDatos(int chasis, String descripcion, String placa, String marca, String modelo, int stock) {
         int resp = 0;
         String SQL_UPDATE = "UPDATE vehiculo SET descripcion = ?, placa = ?, marca = ?, modelo = ? WHERE chasis = ?";
 
@@ -131,7 +133,7 @@ public class vehiculo {
             sentencia.setString(3, placa);
             sentencia.setString(4, marca);
             sentencia.setString(5, modelo);
-            sentencia.setInt(6, Stock);
+            sentencia.setInt(6, stock);
             
 
             resp = sentencia.executeUpdate();
@@ -171,8 +173,13 @@ public class vehiculo {
         return resp;
     }
 
-    public void setStock(int parseInt) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int ActualizarDatos(int chasis, String descripcion, String marca, int stock) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public int InsertarDatos(String descripcion, String marca, int stock) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }
 
