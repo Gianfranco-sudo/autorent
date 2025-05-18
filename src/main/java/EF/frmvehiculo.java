@@ -1,6 +1,8 @@
 package EF;
     import EF.clases.vehiculo;
     import javax.swing.JOptionPane;
+    
+
 
 public class frmvehiculo extends javax.swing.JFrame {
     private final vehiculo obj;
@@ -43,7 +45,7 @@ public class frmvehiculo extends javax.swing.JFrame {
     }
     
     private void listarDatos() {
-        tbVehiculosetModel(obj.obtenerDatos());
+        tbVehiculo.setModel(obj.obtenerDatos());
     }
     
     public frmvehiculo() {
@@ -266,26 +268,20 @@ public class frmvehiculo extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
           int fila = tbVehiculo.getSelectedRow();
-       if (fila<1)
+       if (fila < 0)
            JOptionPane.showMessageDialog(null, "Seleccione un registro");
        else {
-           obj.EliminarDatos(Integer.parseInt(tbVehiculo.getValueAt(fila,0).toString()));
+           obj.eliminarDatos(Integer.parseInt(tbVehiculo.getValueAt(fila,0).toString()));
            limpiar_controles();
            listarDatos();
     }//GEN-LAST:event_btnEliminarActionPerformed
-    }
+
     private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcionActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-     int fila = tbVehiculo.getSelectedRow();
-       if (fila<1)
-           JOptionPane.showMessageDialog(null, "Seleccione un registro");
-       else {
-           obj.EliminarDatos(Integer.parseInt(tbVehiculo.getValueAt(fila,0).toString()));
-           limpiar_controles();
-           listarDatos();
+     guardar();
        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
