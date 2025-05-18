@@ -42,28 +42,22 @@ public class vehiculo {
     public String getModelo() { return modelo; }
     public void setModelo(String modelo) { this.modelo = modelo; }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-
+    public int getStock() { return stock; }
+    public void setStock(int stock) { this.stock = stock; }
 
     // Insertar registro
-    public int insertarDatos(String descripcion, String placa, String marca, String modelo, int Stock) {
+    public int insertarDatos(int chasis, String descripcion, String placa, String marca, String modelo, int stock) {
         int resp = 0;
-        String SQL_INSERT = "INSERT INTO vehiculo (descripcion, placa, marca, modelo, ) VALUES (?, ?, ?, ?, ?)";
+        String SQL_INSERT = "INSERT INTO vehiculo (chasis, descripcion, placa, marca, modelo, stock) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             sentencia = cnn.Conectar().prepareStatement(SQL_INSERT);
-            sentencia.setString(1, descripcion);
-            sentencia.setString(2, placa);
-            sentencia.setString(3, marca);
-            sentencia.setString(4, modelo);
-            sentencia.setInt(5, stock);
+            sentencia.setInt(1, chasis);
+            sentencia.setString(2, descripcion);
+            sentencia.setString(3, placa);
+            sentencia.setString(4, marca);
+            sentencia.setString(5, modelo);
+            sentencia.setInt(6, stock);
 
             resp = sentencia.executeUpdate();
             if (resp > 0) {
@@ -100,13 +94,14 @@ public class vehiculo {
             sentencia = cnn.Conectar().prepareStatement(SQL_SELECT);
             registros = sentencia.executeQuery();
 
-            Object[] fila = new Object[5];
+            Object[] fila = new Object[6];
             while (registros.next()) {
                 fila[0] = registros.getInt("chasis");
                 fila[1] = registros.getString("descripcion");
                 fila[2] = registros.getString("placa");
                 fila[3] = registros.getString("marca");
                 fila[4] = registros.getString("modelo");
+                fila[5] = registros.getInt("stock");
                 modeloTabla.addRow(fila);
             }
         } catch (SQLException e) {
@@ -123,17 +118,16 @@ public class vehiculo {
     // Actualizar registro
     public int actualizarDatos(int chasis, String descripcion, String placa, String marca, String modelo, int stock) {
         int resp = 0;
-        String SQL_UPDATE = "UPDATE vehiculo SET descripcion = ?, placa = ?, marca = ?, modelo = ? WHERE chasis = ?";
+        String SQL_UPDATE = "UPDATE vehiculo SET descripcion = ?, placa = ?, marca = ?, modelo = ?, stock = ? WHERE chasis = ?";
 
         try {
             sentencia = cnn.Conectar().prepareStatement(SQL_UPDATE);
-            sentencia.setInt(1, chasis);
-            sentencia.setString(2, descripcion);
-            sentencia.setString(3, placa);
-            sentencia.setString(4, marca);
-            sentencia.setString(5, modelo);
-            sentencia.setInt(6, stock);
-            
+            sentencia.setString(1, descripcion);
+            sentencia.setString(2, placa);
+            sentencia.setString(3, marca);
+            sentencia.setString(4, modelo);
+            sentencia.setInt(5, stock);
+            sentencia.setInt(6, chasis);
 
             resp = sentencia.executeUpdate();
             if (resp > 0) {
@@ -171,14 +165,4 @@ public class vehiculo {
 
         return resp;
     }
-
-    public int ActualizarDatos(int chasis, String descripcion, String marca, int stock) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public int InsertarDatos(String descripcion, String marca, int stock) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }
-
