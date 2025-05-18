@@ -10,14 +10,14 @@ public class frmvehiculo extends javax.swing.JFrame {
     
     private void guardar() {
         //recopilar la informacion del formulario
-        if (num==1)
+        if (num==1){
             obj.setChasis(Integer.parseInt(txtChasis.getText()));
             obj.setPlaca(txtPlaca.getText());
             obj.setDescripcion(txtDescripcion.getText());
             obj.setMarca(cboMarca.getSelectedItem().toString());
             obj.setModelo(txtModelo.getText());
             obj.setStock(Integer.parseInt(txtStock.getText()));
-        
+        }
         //escoger insercion o actualizacion
         if (num==0) {
             int regs = obj.InsertarDatos(obj.getDescripcion(), 
