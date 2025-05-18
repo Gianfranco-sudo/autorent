@@ -13,7 +13,7 @@ public class vehiculo {
     private String placa;
     private String marca;
     private String modelo;
-    private String color;
+    private int Stock;
 
     private conexionBD cnn;
     private PreparedStatement sentencia;
@@ -42,11 +42,18 @@ public class vehiculo {
     public String getModelo() { return modelo; }
     public void setModelo(String modelo) { this.modelo = modelo; }
 
-    public String getColor() { return color; }
-    public void setColor(String color) { this.color = color; }
+    public int getStock() {
+        return Stock;
+    }
+
+    public void setStock(int Stock) {
+        this.Stock = Stock;
+    }
+
+
 
     // Insertar registro
-    public int insertarDatos(int chasis, String descripcion, String placa, String marca, String modelo) {
+    public int insertarDatos(int chasis, String descripcion, String placa, String marca, String modelo, int Stock) {
         int resp = 0;
         String SQL_INSERT = "INSERT INTO vehiculo (chasis, descripcion, placa, marca, modelo) VALUES (?, ?, ?, ?, ?)";
 
@@ -113,17 +120,19 @@ public class vehiculo {
     }
 
     // Actualizar registro
-    public int actualizarDatos(int chasis, String descripcion, String placa, String marca, String modelo) {
+    public int actualizarDatos(int chasis, String descripcion, String placa, String marca, String modelo, int Stock) {
         int resp = 0;
         String SQL_UPDATE = "UPDATE vehiculo SET descripcion = ?, placa = ?, marca = ?, modelo = ? WHERE chasis = ?";
 
         try {
             sentencia = cnn.Conectar().prepareStatement(SQL_UPDATE);
-            sentencia.setString(1, descripcion);
-            sentencia.setString(2, placa);
-            sentencia.setString(3, marca);
-            sentencia.setString(4, modelo);
-            sentencia.setInt(5, chasis);
+            sentencia.setInt(1, chasis);
+            sentencia.setString(2, descripcion);
+            sentencia.setString(3, placa);
+            sentencia.setString(4, marca);
+            sentencia.setString(5, modelo);
+            sentencia.setInt(6, Stock);
+            
 
             resp = sentencia.executeUpdate();
             if (resp > 0) {
@@ -160,6 +169,10 @@ public class vehiculo {
         }
 
         return resp;
+    }
+
+    public void setStock(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
 

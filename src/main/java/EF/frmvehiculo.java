@@ -274,6 +274,7 @@ public class frmvehiculo extends javax.swing.JFrame {
            obj.eliminarDatos(Integer.parseInt(tbVehiculo.getValueAt(fila,0).toString()));
            limpiar_controles();
            listarDatos();
+       }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
@@ -282,7 +283,7 @@ public class frmvehiculo extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
      guardar();
-       }
+       
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
