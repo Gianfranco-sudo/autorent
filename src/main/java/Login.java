@@ -144,8 +144,8 @@ public class Login extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
        // TODO add your handling code here:
-        String [] Usuarios = {"Luis","Pedro"};
-        String [] Claves = {"1234","5678"};
+        String [] Usuarios = {"admin","Gf"};
+        String [] Claves = {"12345678","1997"};
         boolean verificado = false;
         
         String usuario = txtUsuario.getText();
