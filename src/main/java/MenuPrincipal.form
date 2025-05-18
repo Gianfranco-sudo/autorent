@@ -83,7 +83,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value=" Stock de Vehiculos"/>
+        <Property name="text" type="java.lang.String" value=" Gesti&#xf3;n de Vehiculos"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="frm">

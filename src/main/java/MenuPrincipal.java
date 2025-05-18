@@ -43,7 +43,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText(" Stock de Vehiculos");
+        jButton2.setText(" Gestión de Vehiculos");
 
         frm.setBackground(new java.awt.Color(153, 153, 153));
 
