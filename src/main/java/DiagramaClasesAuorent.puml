@@ -10,12 +10,12 @@ class Cliente{
 }
 
 class Vehiculo{
--Id_Vehiculo: int
+-chasis: int
+-Descripcion: varchar
+-Placa: varchar
 -Marca: varchar
 -Modelo: varchar
--Placa: varchar
--Fecha_Fabricacion: date
--Kilometrage: double
+-Stock: int
 +Registrar_Vehiculo()
 }
 
