@@ -53,18 +53,17 @@ public class vehiculo {
 
 
     // Insertar registro
-    public int insertarDatos(int chasis, String descripcion, String placa, String marca, String modelo, int Stock) {
+    public int insertarDatos(String descripcion, String placa, String marca, String modelo, int Stock) {
         int resp = 0;
-        String SQL_INSERT = "INSERT INTO vehiculo (chasis, descripcion, placa, marca, modelo) VALUES (?, ?, ?, ?, ?)";
+        String SQL_INSERT = "INSERT INTO vehiculo (descripcion, placa, marca, modelo, ) VALUES (?, ?, ?, ?, ?)";
 
         try {
             sentencia = cnn.Conectar().prepareStatement(SQL_INSERT);
-            sentencia.setInt(1, chasis);
-            sentencia.setString(2, descripcion);
-            sentencia.setString(3, placa);
-            sentencia.setString(4, marca);
-            sentencia.setString(5, modelo);
-            sentencia.setInt(6, stock);
+            sentencia.setString(1, descripcion);
+            sentencia.setString(2, placa);
+            sentencia.setString(3, marca);
+            sentencia.setString(4, modelo);
+            sentencia.setInt(5, stock);
 
             resp = sentencia.executeUpdate();
             if (resp > 0) {
