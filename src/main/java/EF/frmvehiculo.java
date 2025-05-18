@@ -1,31 +1,30 @@
 package EF;
     import EF.clases.vehiculo;
-    import java.swing.JOptionPane;
     import javax.swing.JOptionPane;
 
 public class frmvehiculo extends javax.swing.JFrame {
- private final vehiculo obj;
+    private final vehiculo obj;
     int num = 0;
     
     private void guardar() {
         //recopilar la informacion del formulario
         if (num==1)
-            obj.setIdproducto(Integer.parseInt(txtId.getText()));
+            obj.setChasis(Integer.parseInt(txtChasis.getText()));
         
         obj.setDescripcion(txtDescripcion.getText());
-        obj.setCategoria(cboMarca.getSelectedItem().toString());
-        obj.setExistencias(Integer.parseInt(this.txtStock.getText()));
+        obj.setMarca(cboMarca.getSelectedItem().toString());
+        obj.setStock(Integer.parseInt(this.txtStock.getText()));
         
         //escoger insercion o actualizacion
         if (num==0) {
             int regs = obj.InsertarDatos(obj.getDescripcion(), 
-                    obj.getCategoria(), obj.getExistencias());
+                    obj.getMarca(), obj.getStock());
             if (regs>0) {
                 listarDatos();
             }
         } else {
-            int regs = obj.ActualizarDatos(obj.getIdproducto(),obj.getDescripcion(), 
-                    obj.getCategoria(), obj.getExistencias());
+            int regs = obj.ActualizarDatos(obj.getChasis(),obj.getDescripcion(), 
+                    obj.getMarca(), obj.getStock());
             if (regs>0) {
                 listarDatos();
                 num=0;
@@ -37,12 +36,14 @@ public class frmvehiculo extends javax.swing.JFrame {
     private void limpiar_controles(){
         this.txtChasis.setText("");
         this.txtDescripcion.setText("");
+        this.txtPlaca.setText("");
         this.cboMarca.setSelectedIndex(0);
+        this.txtModelo.setText("");
         this.txtStock.setText("");
     }
     
     private void listarDatos() {
-        tbvehiculosetModel(obj.obtenerDatos());
+        tbVehiculosetModel(obj.obtenerDatos());
     }
     
     public frmvehiculo() {
@@ -264,25 +265,25 @@ public class frmvehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-          int fila = tbvehiculo.getSelectedRow();
+          int fila = tbVehiculo.getSelectedRow();
        if (fila<1)
            JOptionPane.showMessageDialog(null, "Seleccione un registro");
        else {
-           obj.EliminarDatos(Integer.parseInt(tbvehiculo.getValueAt(fila,0).toString()));
+           obj.EliminarDatos(Integer.parseInt(tbVehiculo.getValueAt(fila,0).toString()));
            limpiar_controles();
            listarDatos();
     }//GEN-LAST:event_btnEliminarActionPerformed
-
+    }
     private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcionActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-     int fila = tbvehiculo.getSelectedRow();
+     int fila = tbVehiculo.getSelectedRow();
        if (fila<1)
            JOptionPane.showMessageDialog(null, "Seleccione un registro");
        else {
-           obj.EliminarDatos(Integer.parseInt(tbvehiculo.getValueAt(fila,0).toString()));
+           obj.EliminarDatos(Integer.parseInt(tbVehiculo.getValueAt(fila,0).toString()));
            limpiar_controles();
            listarDatos();
        }
