@@ -122,12 +122,13 @@ public class vehiculo {
 
         try {
             sentencia = cnn.Conectar().prepareStatement(SQL_UPDATE);
-            sentencia.setString(1, descripcion);
-            sentencia.setString(2, placa);
-            sentencia.setString(3, marca);
-            sentencia.setString(4, modelo);
-            sentencia.setInt(5, stock);
-            sentencia.setInt(6, chasis);
+            sentencia.setInt(1, chasis);
+            sentencia.setString(2, descripcion);
+            sentencia.setString(3, placa);
+            sentencia.setString(4, marca);
+            sentencia.setString(5, modelo);
+            sentencia.setInt(6, stock);
+            
 
             resp = sentencia.executeUpdate();
             if (resp > 0) {
